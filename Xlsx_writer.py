@@ -99,7 +99,7 @@ class Xls_writer(parse):  # we inherit the class from Avito_parse3
         self.worksheet.write('C1', 'Ссылка')
         self.begin = 2
         self.pages = self.page()
-        for i in range(0, self.pages+1):
+        for i in range(1, self.pages+1):
 
             self.url = self.url.replace(f'p={self.find_p(self.url)}', f'p={i}')
             print(f'Загрузка, страниц записано : {i}')
