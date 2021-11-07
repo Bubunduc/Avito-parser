@@ -1,6 +1,6 @@
 from bs4 import BeautifulSoup
 import requests
-
+from sys import exit
 
 class parse():
     def __init__(self, url): # we take url outside class
@@ -56,8 +56,8 @@ class parse():
 
                 del self.Row_list[0]
 
-                self.lot = f'Имя: {self.sorted_list[0]}   Цена: {self.sorted_list[1]}, Ссылка:  {self.sorted_list[2]}'#We list from format Title Price Link
-                self.lot = self.get_price_and_name(self.Row_list, 0)
+                #self.lot = f'Имя: {self.sorted_list[0]}   Цена: {self.sorted_list[1]}, Ссылка:  {self.sorted_list[2]}'#We list from format Title Price Link
+                self.lot = self.sorted_list
 
                 self.list_with_all_lots.append(self.lot)
 
@@ -77,5 +77,5 @@ class parse():
             max_page = max_page[1:]
             return int(max_page)
         except:
-            print('Not correct link,you must have pages to do this')
-            return None
+            print('Not correct link,you must have pages to do this, try again')
+            exit()
